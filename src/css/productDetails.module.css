@@ -1,0 +1,147 @@
+.main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+ 
+}
+.innermain{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+   padding-top: 30px;
+}
+.imgcontainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+
+}
+.img{
+   
+        border-radius: 4px;
+    width: 60%;
+    height: 80%;
+    
+}
+.img>img{
+    width: 100%;
+    height: 90%;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+}
+.btn{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    height: 10%;
+    padding: 10px;
+}
+.cartbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 30px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    text-decoration: none;
+}
+.cartbtn:hover,.buybtn:hover{
+    box-shadow: none;
+}
+.buybtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 30px;
+    background-color: lightgreen;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+.details{
+    display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: center;
+        width: 50%;
+        height: 80%;
+        color: rgb(174, 68, 119);
+}
+.brand{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 90%;
+    height: 35%;
+    border: 1px solid #ccc5c5;
+    border-radius: 4px;
+   margin: 3px;
+  padding-left: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.brand>h6{
+    padding: 0px;
+    margin: 0%;
+}
+.brand>p{
+    font-size: 8px;
+    background-color: #d1c6c6;
+    border-radius: 4px;  
+    padding: 5px;
+    color: black;
+}
+.brand>.desc{
+font-size: 10px;
+}
+.productdetails{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 90%;
+    height: 60%;
+    border: 1px solid #ccc5c5;
+    border-radius: 4px;
+  margin: 3px;
+  padding-left: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
+}
+.productdetails>ul{
+    font-size: 12px;
+    list-style: none;
+    text-align: left;
+}
+.iconDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    width: 100%;
+    color: black;
+}
+.deliveryCharge>p,.replacementPeriod>p,.warrantyPeriod>p{
+    font-size: 8px;
+}
+.deliveryCharge,.replacementPeriod,.warrantyPeriod{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+   
+    
+}
+
