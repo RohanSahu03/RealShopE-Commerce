@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import style from '../css/productList.module.css'
 import { ProductContext } from './context/ProductContext'
-import Button from './Button';
+import { Button } from 'reactstrap';
+
 
 
 function Filter() {
@@ -27,23 +28,7 @@ function Filter() {
 
     clearFilter()
   }
-  //style
-  const clearbtn = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '120px',
-    cursor: 'pointer',
-    height: '30px',
-    backgroundColor: 'blueviolet',
-    color: 'white',
-    borderRadius: '4px',
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-    border:'none',
-    marginLeft:'20px',
-    marginTop:'15px',
-    marginBottom:'15px'
-  }
+
   
   return (
    <>
@@ -73,7 +58,8 @@ function Filter() {
         <button type="button" className="btn btn-light m-1" value="4000" onClick={handlePriceFilter}>Under 4000</button>
         <button type="button" className="btn btn-light m-1" value="8000" onClick={handlePriceFilter}>Under 8000</button>
         <button type="button" className="btn btn-light m-1" value="15000" onClick={handlePriceFilter}>Under 15000</button> */}
-        <button onClick={clearFilterHandler} style={clearbtn}>Clear Filters</button>
+        {/* <button onClick={clearFilterHandler} className={style.clearbtn}>Clear Filters</button> */}
+        <Button onClick={clearFilterHandler} color='primary' >Clear Filter</Button>
 
       </div>
    </>

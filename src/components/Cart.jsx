@@ -15,12 +15,58 @@ import { BsCurrencyRupee } from 'react-icons/bs'
 function Cart() {
     const { cartItems, removeFromCart } = useContext(CartContext);
    const[address,setAddress]=useState([])
-    const [productCount, setProductCount]=useState(1)
+    const [productCount, setProductCount] = useState([
+        { id: 1, count: 1 },
+        { id: 2, count: 1 },
+        { id: 3, count: 1 },
+        { id: 4, count: 1 },
+        { id: 5, count: 1 },
+        { id: 6, count: 1 },
+        { id: 7, count: 1 },
+        { id: 8, count: 1 },
+        { id: 9, count: 1 },
+       
+    ])
+    const [amount, setAmount] = useState(1)
    // Callback function to update the parent state with data from the child
-   const subTotalFromChild=(data)=>{
-        setProductCount(data)
-   }
+ 
+    const mystyle = {
+        "display": "flex"
+    }
+    const mybtn = {
+        "border": "none",
+        "outline": "none",
+        "background": "none",
+        "fontSize": '18px'
+    }
+    
+     const setDecrease = (itemId) => {
+      cartItems.map((item)=>{
+        if (item.id === itemId){
+          if(amount > 1){
+            setAmount(amount-1)
+          }
+          else{
+           setAmount(1)
+          }
+        }
+      })
+  }
 
+    const setIncrease = (itemId) => {
+        cartItems.map((item) => {
+            if (item.id === itemId) {
+                if (item.quantity < item.stock) {
+                   item.quantity= item.quantity + 1
+                   item.subtotal= item.quantity * item.price
+                }
+                else {
+                    item.quantity=item.stock
+                }
+
+            }
+        })
+    }
 
     const handleRemoveFromCart = (product) => {
         removeFromCart(product);
@@ -69,17 +115,23 @@ function Cart() {
                                         <table className="table table-primary" key={index}>
                                             <tbody >
                                                 <tr className='table-primary'>
-                                                    <td><img src={`../${item.thumb}`} alt="img" className={`${style.img}`} /></td>
+                                                    <td><img src={`../${item.image}`} alt="img" className={`${style.img}`} /></td>
                                                     <td>{item.title}</td>
                                                     <td><BsCurrencyRupee/>{item.price}</td>
                                                     
                                                     <td>
-                                                        <CartAmountToggle stock={item.stock} id={item.id} dataFromChild={subTotalFromChild}/>
+                                                        {/* <CartAmountToggle stock={item.stock} id={item.id} dataFromChild={subTotalFromChild}/> */}
+                                                        <div className="amountToggle" style={mystyle}>
+                                                            <button onClick={() => setDecrease(item.id)} style={mybtn}>-</button>
+
+                                                            <div style={{ marginLeft: '10px', marginRight: '10px' }}>{item.quantity}</div>
+                                                            <button onClick={() => setIncrease(item.id)} style={mybtn}>+</button>
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         {/* <SubTotalCalculater quantity={item.quantity} price={item.price} /> */}
                                                         {/* <BsCurrencyRupee />{} */}
-                                                        {productCount*item.price}
+                                                        {item.subtotal}
                                                     </td>
                                                     <td onClick={() => handleRemoveFromCart(item)}><FaTrash /></td>
                                                 </tr>
@@ -109,7 +161,10 @@ function Cart() {
                                             <tbody>
                                                 <tr>
                                                     <td>Total Product Price</td>
-                                                    <td><BsCurrencyRupee/>{totalPrice}</td>
+                                                    <td><BsCurrencyRupee/>{
+                                                    
+}                                                     
+                                                    </td>
                                                 </tr>
 
                                                 <tr>

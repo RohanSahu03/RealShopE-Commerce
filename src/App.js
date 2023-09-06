@@ -7,6 +7,7 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
 
+
 // import Login from './components/Login'
 // import Product from './components/Product';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/productdetails/:pid' element={<ProductDetails/>} exact />
           <Route path='/addToCart' element={<Cart />} exact />
           <Route path='/contactus' element={<ContactUs/>}  />
+          
       
           {/* <Route path='/footwear' element={<Footwear />} exact />
           <Route path='/phone' element={<SmartPhone />} exact />

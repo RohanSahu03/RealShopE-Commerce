@@ -1,18 +1,28 @@
-import React, { useContext, useEffect } from 'react'
-import { FaShoppingCart,FaUserCircle } from 'react-icons/fa'
+import React, { useContext,useState} from 'react'
+import { FaShoppingCart } from 'react-icons/fa'
+import { BiMenu } from 'react-icons/bi'
+import { CgProfile } from 'react-icons/cg'
 import {Link} from 'react-router-dom'
 import style from '../css/nav.module.css'
-import { useAuth0 } from "@auth0/auth0-react";
 import { ProductContext } from './context/ProductContext';
-import {UncontrolledCollapse,Card,CardBody} from 'reactstrap'
 import { CartContext } from './context/CartContext';
-
+import { Button,Modal,ModalHeader, ModalBody, } from 'reactstrap';
 
 function Nav() {
 
     const { updateSearchTerm,searchTerm}=useContext(ProductContext)
-    const { loginWithRedirect,isAuthenticated,logout,user } = useAuth0();
+    
     const {cartItems} =useContext(CartContext)
+
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
+    const [isActive, setIsActive] = useState(false)
+
+    function showMenu() {
+        setIsActive(current => !current)
+    }
     
   return (
     <div>
@@ -43,57 +53,66 @@ function Nav() {
                       </div>
 
                       <div className={style.profile}>
-                          <Link className={`${style.profileLogo}`} id="toggler" ><FaUserCircle /> </Link>              
+                          <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><CgProfile /> </Link> 
+                          <Modal isOpen={modal} toggle={toggle} className={style.model} >
+                              <ModalHeader toggle={toggle} className={style.modelHeader}><CgProfile /> Profile </ModalHeader>
+                              <ModalBody className={style.modelBody}>
+                                 
+                                          <div className="udetails">
+                                              Hii 
+                                              Enjoy your shopping
+                                           <br />
+                                              <Button color="secondary" onClick={toggle}>
+                                                  Cancel
+                                              </Button>
+                                          </div>
+                              </ModalBody>
+                             
+                          </Modal>
+            
                      </div>
                        
                       <div className={style.profile}>
                           <Link to='/addToCart' className={`${style.profileLogo}`} > <FaShoppingCart> </FaShoppingCart></Link>
-                      </div>
-
-                      <div className={style.login}>
-                        {
-                              isAuthenticated ? (
-                              <Link  onClick={() => logout({ returnTo: window.location.origin })}>Logout</Link>
-                              )
-                              : (
-                              <Link  onClick={() => loginWithRedirect()}>Login</Link>
-                              ) 
-                        }
                          
                       </div>
-                      {/* <div className={style.burgerSpace}>
-                          <div className={style.burger}></div>
-                          <div className={style.burger}></div>
-                          <div className={style.burger}></div>
-                      </div> */}
-                  </div>
+                      <div className={style.login}>
+                         
+                                      <Link >Login</Link>
+            
 
+                      </div>
+                      <div className={style.categoryIcon}>
+                          <BiMenu style={{ float: 'right', fontSize: '25px',color:'white',marginRight:'15px' }} onClick={showMenu} />
+                      </div>
+                  </div>
+  
+                  <div className={style.showMenu} style={{
+                      display: isActive ? 'block' : ''
+                  }}>
+                      <ul>
+                          <li>
+                                  <div className={style.searchbox}>
+                                      <input type="search" placeholder="Search" id="searchField" autoComplete="off" value={searchTerm}
+                                          onChange={(e) => updateSearchTerm(e.target.value)} />
+                                  </div>
+                          </li>
+                          <li> <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><CgProfile /> Profile </Link> </li>
+                          <li> <Link to='/addToCart' className={`${style.profileLogo}`} > <FaShoppingCart/> Cart </Link></li>
+                          <li>
+                              <div className={style.login}>
+                                  
+                                     
+                                              <Link  style={{ color: 'white', textDecoration: 'none' }}>Login</Link>
+               
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
               </article>
           </section>
 
-          <UncontrolledCollapse toggler="#toggler" style={{width:'150px',height:'80px',position:'relative',left:'820px'}}>
-              <Card style={{height:'100%',fontSize:'12px'}}>
-                  <CardBody style={{padding:'0px'}}>
-                    {
-                        isAuthenticated ? (
-                            <div className="udetails">
-                               Hii {user.email}
-                               Enjoy your shopping
-                            </div>
-                            
-                        ):(
-                            <div className="elsePart">
-                                      <b>you are logged out</b>
-                                <br />
-                                To access your account
-                                <br />
-                                      <button onClick={() => loginWithRedirect()} style={{padding:'5px',width:'80px',color:'white',backgroundColor:'blueviolet',borderRadius:'5px',borderStyle:'none'}} >sign up</button>
-                            </div>
-                        )
-                    }
-                  </CardBody>
-              </Card>
-          </UncontrolledCollapse>
+          
 
     </div>
   )

@@ -10,9 +10,7 @@ import StarRating from './StarRating';
 function ProductList() {
   
   const { products,filteredProducts,getData} = useContext(ProductContext);
-
   
-
 useEffect(() => {
 getData()
  
@@ -21,8 +19,7 @@ getData()
 
   return (<>
   
-    <h3 className='  text-dark w-25 m-auto'><i>Latest Products</i></h3>
-    <div className='d-flex justify-content-center h-auto'>
+    <div className={style.mainBody}>
      <Filter/> 
     <div className={` ${style.productOuterDiv}`}>   
     {  
@@ -31,7 +28,7 @@ getData()
               return(
                 <div className={` ${style.productInnerDiv}`}>
                   <Link to={`/productdetails/${item.id}`} className={` ${style.card} `} key={index} >
-                    <img src={item.thumb} className={`card-img-top img-fluid  ${style.cardImg}`} alt="..." />
+                    <img src={item.image} className={`card-img-top img-fluid  ${style.cardImg}`} alt="..." />
                     <div className={`card-body ${style.cardBody}`}>
                       <div className={`card-title  ${style.brand}`}>{item.title}</div>
                         <StarRating star={item.rating} review={item.review} />
@@ -47,7 +44,7 @@ getData()
         return(
           <div className={` ${style.productInnerDiv}`}>
             <Link to={`/productdetails/${data.id}`} className={` ${style.card} `} key={index} >
-              <img src={data.thumb} className={`card-img-top img-fluid  ${style.cardImg}`} alt="..." />
+              <img src={data.image} className={`card-img-top img-fluid  ${style.cardImg}`} alt="..." />
               <div className={`card-body ${style.cardBody}`}>
                 <div className={`card-title ${style.brand}`}>{data.title}</div>
                 <StarRating star={data.rating} review={data.review} />

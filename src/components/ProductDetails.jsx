@@ -39,7 +39,7 @@ const [product,setProduct]=useState({})
         <div className={`${style.innermain}`}>
           <div className={`${style.imgcontainer}`}>
             <div className={`${style.img}`}>
-              <img src={`../${product.thumb}`} className={`card-img-top img-fluid`} alt="img" />
+              <img src={`../${product.image}`} className={`card-img-top img-fluid`} alt="img" />
               </div>
             <div className={`${style.btn}`}>
               <Link to='/addToCart' className={`${style.cartbtn}`} onClick={handleAddToCart}>Add To Cart</Link>

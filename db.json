@@ -6,14 +6,15 @@
       "price": 4000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/headphone/hp3.jpg",
+      "image": "images/headphone/hp3.jpg",
       "category": "headphone",
       "rating":3,
       "review":12000,
       "deliveryCharge":"free delivery",
       "replacementPeriod":"1 week",
       "warrantyPeriod":"1 year",
-      "stock":12
+      "stock":12,
+      "subtotal":4000
     },
     {
       "id": 2,
@@ -21,14 +22,15 @@
       "price": 1200,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/handbag/bag1.jpg",
+      "image": "images/handbag/bag1.jpg",
       "category": "bag",
       "rating": 2,
       "review": 12000,
       "deliveryCharge": "free delivery",
       "replacementPeriod": "1 week",
       "warrantyPeriod": "1 year",
-      "stock": 5
+      "stock": 5,
+      "subtotal": 1200
       
     },
     {
@@ -37,14 +39,15 @@
       "price": 1600,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/handbag/bag2.jpg",
+      "image": "images/handbag/bag2.jpg",
       "category": "bag",
       "rating": 4.6,
-      "review": 12000,
+      "review": 18000,
       "deliveryCharge": "free delivery",
       "replacementPeriod": "1 week",
       "warrantyPeriod": "1 year",
-      "stock": 3
+      "stock": 3,
+      "subtotal": 1600
     },
     {
       "id": 4,
@@ -52,7 +55,7 @@
       "price": 200,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/men tshirt/ts10.jpg",
+      "image": "images/men tshirt/ts10.jpg",
       "category": "tshirt",
       "rating": 4.4,
       "review": 12000,
@@ -67,7 +70,7 @@
       "price": 2000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/headphone/hp1.jpg",
+      "image": "images/headphone/hp1.jpg",
       "category": "headphone",
       "rating": 4.4,
       "review": 12000,
@@ -82,7 +85,7 @@
       "price": 1500,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/headphone/headphone.jpg",
+      "image": "images/headphone/headphone.jpg",
       "category": "headphone",
       "rating": 4.4,
       "review": 12000,
@@ -97,7 +100,7 @@
       "price": 3000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/mobile/nokia.jpg",
+      "image": "images/mobile/nokia.jpg",
       "category": "mobile",
       "rating": 4.4,
       "review": 12000,
@@ -112,7 +115,7 @@
       "price": 60000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/mobile/iphone.jpg",
+      "image": "images/mobile/iphone.jpg",
       "category": "mobile",
       "rating": 4.4,
       "review": 12000,
@@ -127,7 +130,7 @@
       "price": 13000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/men tshirt/Tshirt.jpg",
+      "image": "images/men tshirt/Tshirt.jpg",
       "category": "tshirt",
       "rating": 4.4,
       "review": 12000,
@@ -142,7 +145,7 @@
       "price": 15000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/men tshirt/ts8.jpg",
+      "image": "images/men tshirt/ts8.jpg",
       "category": "tshirt",
       "rating": 4.4,
       "review": 12000,
@@ -157,7 +160,7 @@
       "price": 6000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/men tshirt/ts7.jpg",
+      "image": "images/men tshirt/ts7.jpg",
       "category": "tshirt",
       "rating": 4.4,
       "review": 12000,
@@ -172,7 +175,7 @@
       "price": 14000,
       "description": "some description",
       "quantity": 1,
-      "thumb": "images/headphone/headphone.jpg",
+      "image": "images/headphone/headphone.jpg",
       "category": "headphone",
       "rating": 4.4,
       "review": 12000,
@@ -218,6 +221,26 @@
       "pincodeData": ",jjkkj",
       "cityData": "ereerr",
       "id": 4
+    }
+  ]
+,
+  "images": [
+    {
+      "text":"ffkdffm",
+      "url":"images/homeImg/horizontal-show-applicati.jpg"
+    },
+    {
+      "text": "ffkdffm",
+      "url": "images/homeImg/jeans-close-up.jpg"
+    },
+    {
+      "text": "ffkdffm",
+      "url": "images/homeImg/horizontal-show-applicati.jpg"
+    }
+    ,
+    {
+      "text": "ffkdffm",
+      "url": "images/homeImg/horizontal-show-applicati.jpg"
     }
   ]
 }
