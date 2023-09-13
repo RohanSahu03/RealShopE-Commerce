@@ -6,6 +6,8 @@ import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
+import RegisterUser from './components/RegisterUser';
+import Login from './components/Login';
 
 
 // import Login from './components/Login'
@@ -22,7 +24,8 @@ function App() {
           <Route path='/productdetails/:pid' element={<ProductDetails/>} exact />
           <Route path='/addToCart' element={<Cart />} exact />
           <Route path='/contactus' element={<ContactUs/>}  />
-          
+          <Route path='/register' element={<RegisterUser />} />
+          <Route path='/login' element={<Login />} />
       
           {/* <Route path='/footwear' element={<Footwear />} exact />
           <Route path='/phone' element={<SmartPhone />} exact />

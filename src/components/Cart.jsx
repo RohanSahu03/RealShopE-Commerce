@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from './context/CartContext'
 import { useContext, useState,useEffect } from 'react';
 import style from '../css/cart.module.css'
+import styled from '../css/nav.module.css'
 import { FaTrash} from 'react-icons/fa'
-import AddressForm from './AddressForm';
-import axios from 'axios';
-import CartAmountToggle from './CartAmountToggle';
+import { Button, Modal, ModalHeader, ModalBody,Table } from 'reactstrap';
 import { BsCurrencyRupee } from 'react-icons/bs'
 
 
@@ -14,7 +13,7 @@ import { BsCurrencyRupee } from 'react-icons/bs'
 
 function Cart() {
     const { cartItems, removeFromCart } = useContext(CartContext);
-   const[address,setAddress]=useState([])
+
     const [productCount, setProductCount] = useState([
         { id: 1, count: 1 },
         { id: 2, count: 1 },
@@ -27,8 +26,20 @@ function Cart() {
         { id: 9, count: 1 },
        
     ])
+
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
     const [amount, setAmount] = useState(1)
-   // Callback function to update the parent state with data from the child
+
+    let holderName =useRef()
+    let cardNumber = useRef()
+    let cvvNumber = useRef()
+  const handlePayment=()=>{
+      let holderName = holderName.current.value
+      let cardNumber = cardNumber.current.value
+      let cvvNumber = cvvNumber.current.value
+  }
  
     const mystyle = {
         "display": "flex"
@@ -38,6 +49,23 @@ function Cart() {
         "outline": "none",
         "background": "none",
         "fontSize": '18px'
+    }
+    const inputStyle = {
+        width: "90%",
+        height: "30px",
+        border: "none",
+        color: "black",
+        outline: 0,
+        padding: "0 28px 0 0px",
+        borderRadius: 0,
+        background: "none",
+        fontSize: "12px",
+        borderBottom: "1px solid gray"
+    }
+    const btnStyle = {
+        color:"white",
+        background: "blue",
+       
     }
     
      const setDecrease = (itemId) => {
@@ -73,21 +101,9 @@ function Cart() {
     };
 
     const totalPrice = cartItems.reduce(
-        (accumulator, item) => accumulator + item.price*productCount,
+        (accumulator, item) => accumulator + item.price*cartItems.length,
         0
     );
-
-     useEffect(() => {
-         const getData = () => {
-             axios.get('http://localhost:3000/address')
-                 .then(resp => {
-                     setAddress(resp.data)
-                     console.log(resp.data);
-                 })
-                 .catch(err => console.log(err))
-         }
-    }, [])
-    
     
 
     return (
@@ -112,14 +128,27 @@ function Cart() {
 
                                 cartItems.map((item, index) => (
                                     <>
-                                        <table className="table table-primary" key={index}>
+                                        <table className={`${style.tableData} table`} key={index}>
                                             <tbody >
-                                                <tr className='table-primary'>
-                                                    <td><img src={`../${item.image}`} alt="img" className={`${style.img}`} /></td>
-                                                    <td>{item.title}</td>
-                                                    <td><BsCurrencyRupee/>{item.price}</td>
-                                                    
+                                                <tr >
                                                     <td>
+                                                    <div className="tableDatar">
+                                                   <img src={`../${item.image}`} alt="img" className={`${style.img}`} />
+                                                    </div>
+                                                    </td>
+                                                    <td>
+                                                    <div className="tableDatar">
+                                                    {item.title}
+                                                    </div>
+                                                    </td>
+                                                    <td>
+                                                    <div className="tableDatar">
+                                                    <BsCurrencyRupee/>{item.price}
+                                                    </div>
+                                                    </td>
+                                                    <td>
+                                                    <div className="tableDatar">
+                                                    
                                                         {/* <CartAmountToggle stock={item.stock} id={item.id} dataFromChild={subTotalFromChild}/> */}
                                                         <div className="amountToggle" style={mystyle}>
                                                             <button onClick={() => setDecrease(item.id)} style={mybtn}>-</button>
@@ -127,20 +156,27 @@ function Cart() {
                                                             <div style={{ marginLeft: '10px', marginRight: '10px' }}>{item.quantity}</div>
                                                             <button onClick={() => setIncrease(item.id)} style={mybtn}>+</button>
                                                         </div>
+                                                  
+                                                    </div>
                                                     </td>
                                                     <td>
+                                                    <div className="tableDatar">
+                                                   
                                                         {/* <SubTotalCalculater quantity={item.quantity} price={item.price} /> */}
                                                         {/* <BsCurrencyRupee />{} */}
                                                         {item.subtotal}
+                                                  
+                                                    </div>
                                                     </td>
-                                                    <td onClick={() => handleRemoveFromCart(item)}><FaTrash /></td>
+                                                    <td onClick={() => handleRemoveFromCart(item)}>
+                                                    <div className="tableData1">
+                                                    <FaTrash />
+                                                    </div>
+                                                    </td>
                                                 </tr>
 
                                             </tbody>
                                         </table>
-
-
-
                                     </>
                                 )
 
@@ -154,16 +190,14 @@ function Cart() {
                                 <div className={`${style.verticalLine}`}></div>
                                 <div className={`${style.priceDetails}`}>
                                     <div className={`${style.priceHead}`}>
-                                        Price Details
+                                        Order Details
                                     </div>
                                     <div className={`${style.bill}`}>
                                         <table className={` table ${style.table}`}>
                                             <tbody>
                                                 <tr>
                                                     <td>Total Product Price</td>
-                                                    <td><BsCurrencyRupee/>{
-                                                    
-}                                                     
+                                                    <td><BsCurrencyRupee/>{totalPrice}                                                     
                                                     </td>
                                                 </tr>
 
@@ -175,17 +209,47 @@ function Cart() {
 
                                             </tbody>
                                         </table>
-                                        {
-
-                                            address.length !== 0 ? (
-                                                <div className={`${style.buybtn}`}>
+                                     
+                                                <div className={`${style.buybtn}`} onClick={toggle}>
                                                     <b>Buy</b>
                                                 </div>
-                                            ) : (<>
-                                               <AddressForm/>
-                                            </>)
-                                        }
+                                        <Modal isOpen={modal} toggle={toggle} className={styled.model} >
+                                            <ModalHeader toggle={toggle} className={styled.modelHeader}> Payment </ModalHeader>
+                                            <ModalBody className={styled.modelBody}>
 
+                                                <Table borderless style={{ marginBottom: "0px" }}>
+                                                    <thead >
+                                                        <tr>
+                                                            <th>
+                                                               Enter Card Details
+                                                            </th>
+
+                                                        </tr>
+
+                                                    </thead>
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <input style={inputStyle} type="text" ref={holderName} placeholder="Card Holder Name" id="searchField" autoComplete="off" required />
+                                                        </tr>
+                                                        <tr>
+                                                            <input style={inputStyle} type="text" ref={cardNumber} placeholder="Card Number" id="searchField" autoComplete="off" required />
+                                                        </tr>
+                                                        <tr>
+                                                            <input style={inputStyle} type="text" ref={cvvNumber} placeholder="CVV Number" id="searchField" autoComplete="off" required />
+                                                        </tr>
+                                                        <br />
+                                                        <tr>
+                                                            <Button type='submit' onClick={handlePayment} style={btnStyle}>
+                                                                Make Payment
+                                                            </Button>
+                                                        </tr>
+<br />
+                                                    </tbody>
+                                                    </Table>
+                                            </ModalBody>
+
+                                        </Modal>
                                     </div>
                                 </div>
                             </>

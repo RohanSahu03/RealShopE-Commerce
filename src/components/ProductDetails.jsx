@@ -43,7 +43,7 @@ const [product,setProduct]=useState({})
               </div>
             <div className={`${style.btn}`}>
               <Link to='/addToCart' className={`${style.cartbtn}`} onClick={handleAddToCart}>Add To Cart</Link>
-              <div className={`${style.buybtn}`}>Buy</div>
+              <Link to='/buy'  className={`${style.buybtn}`}>Buy</Link>
               </div>
           </div>
           <div className={`${style.details}`}>

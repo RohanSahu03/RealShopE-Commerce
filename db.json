@@ -2,19 +2,19 @@
   "product": [
     {
       "id": 1,
-      "title": "Zebronic ",
+      "title": "Zebronic",
       "price": 4000,
       "description": "some description",
       "quantity": 1,
       "image": "images/headphone/hp3.jpg",
       "category": "headphone",
-      "rating":3,
-      "review":12000,
-      "deliveryCharge":"free delivery",
-      "replacementPeriod":"1 week",
-      "warrantyPeriod":"1 year",
-      "stock":12,
-      "subtotal":4000
+      "rating": 3,
+      "review": 12000,
+      "deliveryCharge": "free delivery",
+      "replacementPeriod": "1 week",
+      "warrantyPeriod": "1 year",
+      "stock": 12,
+      "subtotal": 4000
     },
     {
       "id": 2,
@@ -31,7 +31,6 @@
       "warrantyPeriod": "1 year",
       "stock": 5,
       "subtotal": 1200
-      
     },
     {
       "id": 3,
@@ -187,60 +186,46 @@
   ],
   "address": [
     {
-      "nameData": "fgffg",
-      "phoneData": "fgfgg",
-      "buildingData": "gdfgfg",
-      "areaData": "rerfb",
-      "pincodeData": "fgfgh",
-      "cityData": "hfghgh",
+      "nameData": "rohan",
+      "phoneData": "87963512",
+      "buildingData": "nfdsnf",
+      "areaData": "industrial area",
+      "pincodeData": "979415",
+      "cityData": "banglore",
       "id": 1
     },
     {
-      "nameData": "vcvc",
-      "phoneData": "ccvc",
-      "buildingData": "fdfdd",
-      "areaData": "cvcvc",
-      "pincodeData": "vcxvcv",
-      "cityData": "bvbvb",
+      "nameData": "hii",
+      "phoneData": "75213",
+      "buildingData": "nddfndfd",
+      "areaData": "nfgfnf",
+      "pincodeData": "48651",
+      "cityData": "nffnf",
       "id": 2
     },
     {
-      "nameData": "jhjhjh",
-      "phoneData": "hgjh",
-      "buildingData": "xcxzc",
-      "areaData": "dffg",
-      "pincodeData": "fgfg",
-      "cityData": "jhk",
+      "nameData": "hii",
+      "phoneData": "75213",
+      "buildingData": "nddfndfd",
+      "areaData": "nfgfnf",
+      "pincodeData": "48651",
+      "cityData": "nffnf",
       "id": 3
-    },
-    {
-      "nameData": "fdfdf",
-      "phoneData": "ghgg",
-      "buildingData": "rtyt",
-      "areaData": "xcxvc",
-      "pincodeData": ",jjkkj",
-      "cityData": "ereerr",
-      "id": 4
     }
-  ]
-,
-  "images": [
+  ],
+  "user": [
     {
-      "text":"ffkdffm",
-      "url":"images/homeImg/horizontal-show-applicati.jpg"
+      "name": "ROHAN KUMAR SAHU",
+      "email": "sahurohankumar47@gmail.com",
+      "phone": "7999380761",
+      "gender": "",
+      "password": "43448945njn",
+      "id": 1
     },
     {
-      "text": "ffkdffm",
-      "url": "images/homeImg/jeans-close-up.jpg"
-    },
-    {
-      "text": "ffkdffm",
-      "url": "images/homeImg/horizontal-show-applicati.jpg"
-    }
-    ,
-    {
-      "text": "ffkdffm",
-      "url": "images/homeImg/horizontal-show-applicati.jpg"
+      "phone": "43434",
+      "password": "565656",
+      "id": 2
     }
   ]
 }

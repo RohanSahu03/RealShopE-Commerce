@@ -1,4 +1,4 @@
-import React,{useRef, useState} from 'react'
+import React, { useRef, useState} from 'react'
 import { Modal, ModalBody, ModalFooter, Button, ModalHeader, Table, FormGroup, Label, Input, Col} from 'reactstrap'
 import { FaPhoneAlt, FaLocationArrow } from 'react-icons/fa'
 import style from '../css/cart.module.css'
@@ -8,6 +8,7 @@ import axios from 'axios'
 function AddressForm(args) {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
+   
 
    let name=useRef()
     let phone = useRef()
@@ -26,7 +27,7 @@ function AddressForm(args) {
         let pincodeData = pincode.current.value
         let cityData = city.current.value
         let stateData = state.current.value
-
+    
         const formData ={
             nameData: nameData,
             phoneData:phoneData,
@@ -40,10 +41,11 @@ function AddressForm(args) {
             .then(function (response) {
                 console.log(response);
                 if(response.status===201){
-                    alert("address has been saved...")
+                   alert("address have been saved")
                 }
             })
             .catch(function (error) {
+                alert("error")
                 console.log(error);
             });
        

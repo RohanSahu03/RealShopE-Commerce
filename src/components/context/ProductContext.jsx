@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import axios from 'axios';
+import axios from 'axios'
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
@@ -75,13 +75,17 @@ export const ProductProvider = ({ children }) => {
     }
 
     const getData=()=>{
-        axios.get('http://localhost:3000/product')
+        axios.get('http://localhost:3000/product',{
+            headers:{
+                Accept:'application/json'
+            }
+        })
             .then(resp => {
                 setProducts(resp.data)
             })
             .catch(err => console.log(err))
-    }
-
+     }
+ 
     return (
         <ProductContext.Provider value={{ products, filteredProducts, filterProducts, getData, filterByPrice, sortProducts, searchTerm, updateSearchTerm, maxPrice, clearFilter }}>
             {children}

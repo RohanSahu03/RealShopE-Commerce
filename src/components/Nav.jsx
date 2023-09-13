@@ -77,11 +77,12 @@ function Nav() {
                          
                       </div>
                       <div className={style.login}>
-                         
-                                      <Link >Login</Link>
-            
-
+                                      <Link to='/login' >Login</Link>
                       </div>
+                      <div className={style.login}>
+                          <Link to='/register' >Register</Link>
+                      </div>
+
                       <div className={style.categoryIcon}>
                           <BiMenu style={{ float: 'right', fontSize: '25px',color:'white',marginRight:'15px' }} onClick={showMenu} />
                       </div>
@@ -92,19 +93,21 @@ function Nav() {
                   }}>
                       <ul>
                           <li>
-                                  <div className={style.searchbox}>
-                                      <input type="search" placeholder="Search" id="searchField" autoComplete="off" value={searchTerm}
-                                          onChange={(e) => updateSearchTerm(e.target.value)} />
-                                  </div>
+                              <div className={style.login}>
+                                  <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
+                              </div>
                           </li>
                           <li> <Link className={`${style.profileLogo}`} id="toggler" onClick={toggle} ><CgProfile /> Profile </Link> </li>
                           <li> <Link to='/addToCart' className={`${style.profileLogo}`} > <FaShoppingCart/> Cart </Link></li>
                           <li>
                               <div className={style.login}>
-                                  
-                                     
                                               <Link  style={{ color: 'white', textDecoration: 'none' }}>Login</Link>
-               
+                              </div>
+                          </li>
+                          <li>
+                              <div className={style.searchbox}>
+                                  <input type="search" placeholder="Search" id="searchField" autoComplete="off" value={searchTerm}
+                                      onChange={(e) => updateSearchTerm(e.target.value)} />
                               </div>
                           </li>
                       </ul>
