@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/E-Commerce_INBT03137_AUG2023/static/css/main.78929b25.css",
+    "main.js": "/E-Commerce_INBT03137_AUG2023/static/js/main.e71601d9.js",
+    "static/js/787.34115356.chunk.js": "/E-Commerce_INBT03137_AUG2023/static/js/787.34115356.chunk.js",
+    "index.html": "/E-Commerce_INBT03137_AUG2023/index.html",
+    "main.78929b25.css.map": "/E-Commerce_INBT03137_AUG2023/static/css/main.78929b25.css.map",
+    "main.e71601d9.js.map": "/E-Commerce_INBT03137_AUG2023/static/js/main.e71601d9.js.map",
+    "787.34115356.chunk.js.map": "/E-Commerce_INBT03137_AUG2023/static/js/787.34115356.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78929b25.css",
+    "static/js/main.e71601d9.js"
+  ]
+}
